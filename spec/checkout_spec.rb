@@ -14,7 +14,7 @@ describe Checkout do
 
   context "scan" do
     it "scanning an item returns true" do
-      expect(checkout.scan).to eq true
+      expect(checkout.scan(item1)).to eq true
     end
 
     it "basket is empty before scanning" do

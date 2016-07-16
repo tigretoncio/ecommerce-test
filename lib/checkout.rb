@@ -6,7 +6,8 @@ class Checkout
     @basket = []
   end
 
-  def scan
+  def scan(item)
+    basket << item
     true
   end
 
