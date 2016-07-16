@@ -13,8 +13,19 @@ describe Checkout do
   end
 
   context "scan" do
-    it "scans an item" do
+    it "scanning an item returns true" do
       expect(checkout.scan).to eq true
+    end
+
+    it "basket is empty before scanning" do
+      # basket made  public to pass this test, think if it should really be private? and
+      #remove this?
+      expect(checkout.basket).to eq []
+    end
+
+    it "item is added after scanning" do
+      checkout.scan(item1)
+      expect(checkout.basket).to include item1
     end
   end
 end
