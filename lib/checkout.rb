@@ -1,5 +1,4 @@
 class Checkout
-  attr_reader :basket
 
   def initialize(promo_rules)
     @promo_rules = promo_rules
@@ -18,6 +17,6 @@ class Checkout
 
   private
 
-  attr_reader :promo_rules
+  attr_reader :basket, :promo_rules
 
 end

@@ -18,13 +18,9 @@ describe Checkout do
       expect(checkout.scan(item1)).to eq true
     end
 
-    it "basket is empty before scanning" do
-      expect(checkout.basket).to eq []
-    end
-
     it "item is added after scanning" do
       checkout.scan(item1)
-      expect(checkout.basket).to include item1
+      expect(checkout.total).to be > 0
     end
   end
 
