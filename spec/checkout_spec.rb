@@ -11,4 +11,10 @@ describe Checkout do
       expect(checkout.total).to eq 0
     end
   end
+
+  context "scan" do
+    it "scans an item" do
+      expect(checkout.scan).to eq true
+    end
+  end
 end

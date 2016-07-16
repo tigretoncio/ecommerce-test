@@ -5,5 +5,8 @@ class Checkout
     @total = 0
   end
 
+  def scan
+    true
+  end
 
 end
