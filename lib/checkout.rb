@@ -1,7 +1,8 @@
 class Checkout
   attr_reader :total, :basket
 
-  def initialize
+  def initialize(promo_rules)
+    @promo_rules = promo_rules
     @total = 0
     @basket = []
   end
@@ -13,6 +14,6 @@ class Checkout
 
   private
 
-  # attr_reader :basket
+  attr_reader :promo_rules
 
 end
