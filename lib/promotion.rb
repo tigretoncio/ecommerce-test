@@ -1,11 +1,11 @@
 class Promotion
 
-  attr_reader :promo_id, :promo_type, :params
+  attr_reader :id, :type, :params
 
-  def initialize(promo_id:, promo_type:, params:)
-    raise "error: entry not correct" if promo_id.nil? || promo_type.nil? || params.nil?
-    @promo_id = promo_id
-    @promo_type = promo_type
+  def initialize(id:, type:, params:)
+    raise "error: entry not correct" if id.nil? || type.nil? || params.nil?
+    @id = id
+    @type = type
     @params = params
   end
 end

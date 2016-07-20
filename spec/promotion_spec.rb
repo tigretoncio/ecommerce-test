@@ -2,16 +2,16 @@ require 'promotion'
 
 describe Promotion do
 
-  subject(:promotion) { described_class.new(promo_id: :"promo1", promo_type: :"qty_discount",params: { article: :"001", promo_price: 8.50 }) }
-  let(:error_promo) { described_class.new(promo_id: nil, promo_type: :"qty_discount",params: { article: :"001", promo_price: 8.50 }) }
-  let(:error_promo2) { described_class.new(promo_id: :"promo1", promo_type: nil,params: {  }) }
-  let(:error_promo3) { described_class.new(promo_id: :"promo1", promo_type: :"qty_discount",params: nil) }
+  subject(:promotion) { described_class.new(id: :"promo1", type: :"qty_discount",params: { article: :"001", price: 8.50 }) }
+  let(:error_promo) { described_class.new(id: nil, type: :"qty_discount",params: { article: :"001", price: 8.50 }) }
+  let(:error_promo2) { described_class.new(id: :"promo1", type: nil,params: {  }) }
+  let(:error_promo3) { described_class.new(id: :"promo1", type: :"qty_discount",params: nil) }
 
   before do
-    @promo_id = :"promo1"
-    @promo_type = :"qty_discount"
+    @id = :"promo1"
+    @type = :"qty_discount"
     @description = "2 Lavender heart, unit price 8.50"
-    @params = { article: :"001", promo_price: 8.50 }
+    @params = { article: :"001", price: 8.50 }
   end
 
   it "with one parameter not filled, throws error" do
@@ -21,9 +21,9 @@ describe Promotion do
 
   end
 
-  it "has parameters name, description, and promo_params" do
-    expect(promotion.promo_id).to eq @promo_id
-    expect(promotion.promo_type).to eq @promo_type
+  it "has parameters name, description, and params" do
+    expect(promotion.id).to eq @id
+    expect(promotion.type).to eq @type
     expect(promotion.params).to eq @params
   end
 end

@@ -1,15 +1,25 @@
 require 'promotion_rules'
 
 describe PromotionRules do
-  let(:promotion) { double(promo_type: "bundle", params: { item: :"001", quantity: 2, unit_price: 8.50 })}
+  let(:promo1) { Promotion.new(id: :"promo1", type: :"qty_discount",params: { article: :"001", qty: 2, price: 8.50 }) }
+  let(:promo2) { Promotion.new(id: :"promo2", type: :"vol_discount", params: { min_purchase: 60, discount: 0.1 }) }
+
   subject(:rules) { described_class.new()}
 
-  it "starts with an empty promotion rule file" do
-    expect(rules.first).to be_nil
+  it "on initialization, empty" do
+    expect(rules).to be_empty
   end
 
   it "adds a promotion" do
-    rules.add(promotion)
-    expect(rules.first).to eq promotion
+    rules.add(promo2)
+    expect(rules.first.type).to eq :"vol_discount"
+  end
+
+  it "removes a promotion" do
+    rules.add(promo1)
+    rules.add(promo2)
+    rules.remove(:"promo1")
+    expect(rules.count).to eq 1
+    expect(rules.first.id).to eq :"promo2"
   end
 end
