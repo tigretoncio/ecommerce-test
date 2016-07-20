@@ -5,11 +5,11 @@ describe PromotionRules do
   subject(:rules) { described_class.new()}
 
   it "starts with an empty promotion rule file" do
-    expect(rules.all).to be_empty
+    expect(rules.first).to be_nil
   end
 
   it "adds a promotion" do
     rules.add(promotion)
-    expect(rules.all[0]).to eq promotion
+    expect(rules.first).to eq promotion
   end
 end

@@ -1,0 +1,18 @@
+{
+  "promorules":
+  {
+     "rules": [
+
+    {"ruleName": "If you buy 2 or more lavender hearts then the price drops to £8.50",
+    "PromoType": "Bulk",
+    "item": "001",
+    "quantity": "2",
+    "unit price": "8.50"},
+    {
+    "ruleName": "If you spend over £60, then you get 10% of your purchase",
+    "PromoType": "Volume",
+    "threshold": "60",
+    "discount": "0.1"}
+    ]
+  }
+}

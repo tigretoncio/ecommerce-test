@@ -1,6 +1,5 @@
 class PromotionRules
-
-  attr_reader :all
+  include Enumerable
 
   def initialize()
     @all = []
@@ -10,5 +9,15 @@ class PromotionRules
     all << promotion
   end
 
-  # make the class enumerable
+  def remove(promotion_id)
+  end
+
+  def each(&block)
+    all.each(&block)
+  end
+
+  private
+
+  attr_reader :all
+
 end
