@@ -2,7 +2,7 @@ require 'promotion_rules'
 
 describe PromotionRules do
 
-  let(:promo1) { Promotion.new(id: :"promo1", type: :"qty_discount",params: { article: :"001", qty: 2, price: 8.50 }) }
+  let(:promo1) { Promotion.new(id: :"promo1", type: :"multiple_buy",params: { article: :"001", qty: 2, price: 8.50 }) }
   let(:promo2) { Promotion.new(id: :"promo2", type: :"vol_discount", params: { min_purchase: 60, discount: 0.1 }) }
 
   subject(:rules) { described_class.new()}

@@ -29,7 +29,6 @@ class PromotionRules
 
   def duplicated_volume_discount?
     all.count{ |promo| promo.type == :"vol_discount"} == 1
-
   end
 
 end
