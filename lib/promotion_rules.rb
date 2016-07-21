@@ -1,13 +1,13 @@
 class PromotionRules
   include Enumerable
 
-  def initialize()
-    @all = []
+  def initialize(*promotions)
+    @all = promotions
   end
 
   def add(promotion)
     raise "error, not a promotion" unless promotion.is_a?(Promotion)
-    # raise ""
+    raise "can't add another volume discount rule" if duplicated_volume_discount?
     all << promotion
   end
 
@@ -23,14 +23,13 @@ class PromotionRules
     @all.empty?
   end
 
-
-
   private
 
   attr_reader :all
 
-  # def duplicated_volume_discount?
-  #   all.
-  # end
+  def duplicated_volume_discount?
+    all.count{ |promo| promo.type == :"vol_discount"} == 1
+
+  end
 
 end
