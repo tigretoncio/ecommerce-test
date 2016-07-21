@@ -28,7 +28,7 @@ class Calculations
   def process_discount_rule
     return if promo_rules.nil?
     discount_rule = promo_rules.select { |rule| rule.type == :vol_discount }
-    return if discount_rule.nil?
+    return if discount_rule.empty?
     @discount = discount_rule.first.params[:discount]
     @min_buy = discount_rule.first.params[:min_purchase]
   end
