@@ -2,8 +2,10 @@ require 'promotion_rules'
 
 describe PromotionRules do
 
-  let(:promo1) { Promotion.new(id: :"promo1", type: :"multiple_buy",params: { article: :"001", qty: 2, price: 8.50 }) }
-  let(:promo2) { Promotion.new(id: :"promo2", type: :"vol_discount", params: { min_purchase: 60, discount: 0.1 }) }
+  let(:promo1) { Promotion.new(id: :"promo1",
+    type: :"multiple_buy",params: { item: :"001", qty: 2, price: 8.50 }) }
+  let(:promo2) { Promotion.new(id: :"promo2",
+    type: :"vol_discount", params: { min_purchase: 60, discount: 0.1 }) }
 
   subject(:rules) { described_class.new()}
   let(:rules_with_promos) { described_class.new(promo1, promo2) }
@@ -31,6 +33,7 @@ describe PromotionRules do
 
   it "does not accept duplicated volume discounts" do
     rules.add(promo2)
-    expect { rules.add(promo2) }.to raise_error(RuntimeError, "can't add another volume discount rule")
+    expect { rules.add(promo2) }.to raise_error(RuntimeError,
+      "can't add another volume discount rule")
   end
 end

@@ -1,8 +1,6 @@
 class Basket
   include Enumerable
 
-  attr_reader :basket
-
   def initialize()
     @basket = []
   end
@@ -26,4 +24,9 @@ class Basket
   def change_price(code, new_price)
     basket.select { |item| item.code == code}.map {|item| item.price = new_price }
   end
+
+  private
+
+  attr_reader :basket
+
 end
