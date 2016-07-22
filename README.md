@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/tigretoncio/ecommerce-test.svg?branch=wip)](https://travis-ci.org/tigretoncio/ecommerce-test)[![Coverage Status](https://coveralls.io/repos/github/tigretoncio/ecommerce-test/badge.svg?branch=master)](https://coveralls.io/github/tigretoncio/ecommerce-test?branch=master)
+[![Build Status](https://travis-ci.org/tigretoncio/ecommerce-test.svg?branch=wip)](https://travis-ci.org/tigretoncio/ecommerce-test)
 
 # Solution
 
