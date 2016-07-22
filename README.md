@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/tigretoncio/ecommerce-test.svg?branch=wip)](https://travis-ci.org/tigretoncio/ecommerce-test)[![Coverage Status](https://coveralls.io/repos/github/tigretoncio/ecommerce-test/badge.svg?branch=master)](https://coveralls.io/github/tigretoncio/ecommerce-test?branch=master)
+
 The Test
 Our client is an online marketplace, here is a sample of some of the products available on our site:
 
