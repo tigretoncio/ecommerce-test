@@ -31,7 +31,8 @@ class Calculations
     multiple_buy_rules = promo_rules.select { |rule| rule.type == :multiple_buy }
     return if multiple_buy_rules.empty?
     multiple_buy_rules.each do |rule|
-      update_unit_prices(rule.params[:code], rule.params[:quantity], rule.params[:promo_price])
+      update_unit_prices(rule.params[:code], rule.params[:quantity],
+        rule.params[:promo_price])
     end
 
   end
@@ -43,7 +44,7 @@ class Calculations
   end
 
   def price_format(number)
-    "£#{sprintf('%.2f', number)}"
+    "£#{format('%.2f', number)}"
   end
 
 end

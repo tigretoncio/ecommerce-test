@@ -2,7 +2,8 @@ require 'item'
 
 describe Item do
 
-  subject(:item) { described_class.new(code: :"001", name: "Lavender heart", price: 9.25) }
+  subject(:item) { described_class.new(code: :"001",
+    name: "Lavender heart", price: 9.25) }
 
   context "initalization" do
     it "takes code, name and price paramaters" do
