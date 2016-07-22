@@ -14,11 +14,11 @@ Take a look to the feature testing
 ## The Test
 Our client is an online marketplace, here is a sample of some of the products available on our site:
 
-|Productcode |Name                   |Price  |
-­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­|­:-----------|:----------------------|------:|
-|001         |Lavenderheart          |£9.25  |
-|002         |Personalised cuff links|£45.00 |
-|003         |KidsT­shirt             |£19.95 |
+| Productcode | Name                   | Price  |
+­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­|­ :-----------| :----------------------| ------:|
+| 001         | Lavenderheart          | £9.25  |
+| 002         | Personalised cuff links| £45.00 |
+| 003         | KidsT­shirt             | £19.95 |
 
 Our marketing team want to offer promotions as an incentive for our customers to purchase these items.
 If you spend over £60, then you get 10% off of your purchase. If you buy 2 or more lavender hearts then the
