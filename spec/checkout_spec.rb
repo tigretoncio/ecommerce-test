@@ -25,7 +25,7 @@ describe Checkout do
     end
   end
 
-  context "calculates totals, no discount" do
+  context "calculates totals, no discount - wip" do
     it "with item1 one basket, total is price of item1" do
       checkout.scan(item1)
       expect(checkout.total).to eq item1.price
