@@ -1,13 +1,13 @@
 class Checkout
 
-  def initialize(promo_rules)
+  def initialize(basket, promo_rules)
+    @basket = basket
     @promo_rules = promo_rules
-    @basket = []
+
   end
 
   def scan(item)
     basket << item
-    true
   end
 
   def total

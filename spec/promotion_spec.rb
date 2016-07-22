@@ -2,8 +2,8 @@ require 'promotion'
 
 describe Promotion do
 
-  subject(:promotion) { described_class.new(id: :"promo1", type: :"multiple_buy",params: { article: :"001", price: 8.50 }) }
-  let(:error_promo) { described_class.new(id: nil, type: :"multiple_buy",params: { article: :"001", price: 8.50 }) }
+  subject(:promotion) { described_class.new(id: :"promo1", type: :"multiple_buy",params: { item: :"001", price: 8.50 }) }
+  let(:error_promo) { described_class.new(id: nil, type: :"multiple_buy",params: { item: :"001", price: 8.50 }) }
   let(:error_promo2) { described_class.new(id: :"promo1", type: nil,params: {  }) }
   let(:error_promo3) { described_class.new(id: :"promo1", type: :"multiple_buy",params: nil) }
 
@@ -11,7 +11,7 @@ describe Promotion do
     @id = :"promo1"
     @type = :"multiple_buy"
     @description = "2 Lavender heart, unit price 8.50"
-    @params = { article: :"001", price: 8.50 }
+    @params = { item: :"001", price: 8.50 }
   end
 
   it "with one parameter not filled, throws error" do
