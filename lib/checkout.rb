@@ -1,18 +1,17 @@
 class Checkout
 
-  def initialize(basket, promo_rules)
+  def initialize(basket: Basket.new, promo_rules: nil)
     @basket = basket
     @promo_rules = promo_rules
-
   end
 
   def scan(item)
-    basket << item
+    basket.add(item)
   end
 
   def total
-    return 0 if basket.empty?
-    return basket[0].price
+    c = Calculations.new(basket,promo_rules)
+    c.total
   end
 
   private

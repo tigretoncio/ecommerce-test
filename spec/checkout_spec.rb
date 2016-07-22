@@ -5,7 +5,8 @@ describe Checkout do
   let(:item2) { double(item_code: :"002", name: "Personalised cufflinks", price: 45) }
   let(:item3) { double(item_code: :"003", name: "Kids T-shirt", price: 19.95) }
   let(:promo_rules) { double()}
-  subject(:checkout) { described_class.new(basket,promo_rules) }
+  let(:basket) { Basket.new() }
+  subject(:checkout) { described_class.new() }
 
   context "initialization" do
     it "total is zero" do
@@ -15,7 +16,7 @@ describe Checkout do
 
   context "scan" do
     it "scanning an item returns true" do
-      expect(checkout.scan(item1)).to eq true
+      expect(checkout.scan(item1)).to eq [item1]
     end
 
     it "item is added after scanning" do
@@ -25,12 +26,12 @@ describe Checkout do
   end
 
   context "calculates totals, no discount" do
-    it "with item1 one basket, total is price of item1" do
+    xit "with item1 one basket, total is price of item1" do
       checkout.scan(item1)
       expect(checkout.total).to eq item1.price
     end
 
-    it "with item2 in basket, total is price of item2" do
+    xit "with item2 in basket, total is price of item2" do
       checkout.scan(item2)
       expect(checkout.total).to eq item2.price
     end
