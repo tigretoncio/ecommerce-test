@@ -43,8 +43,8 @@ class Calculations
     end
   end
 
-  def price_format(number)
-    "£#{format('%.2f', number)}"
-  end
+  # def price_format(number)
+  #   "£#{format('%.2f', number)}"
+  # end
 
 end

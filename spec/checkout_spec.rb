@@ -10,7 +10,7 @@ describe Checkout do
 
   context "initialization" do
     it "total is zero" do
-      expect(checkout.total).to eq 0
+      expect(checkout.total).to eq "£0.00"
     end
   end
 
@@ -21,19 +21,20 @@ describe Checkout do
 
     it "item is added after scanning" do
       checkout.scan(item1)
-      expect(checkout.total).to be > 0
+      expect(checkout.total).to eq "£9.25"
     end
   end
 
   context "calculates totals, no discount - wip" do
     it "with item1 one basket, total is price of item1" do
       checkout.scan(item1)
-      expect(checkout.total).to eq item1.price
+      checkout.scan(item2)
+      expect(checkout.total).to eq "£54.25"
     end
 
     it "with item2 in basket, total is price of item2" do
       checkout.scan(item2)
-      expect(checkout.total).to eq item2.price
+      expect(checkout.total).to eq "£#{format('%.2f',item2.price)}"
     end
   end
 end

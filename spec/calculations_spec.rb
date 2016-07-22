@@ -6,7 +6,7 @@ describe Calculations do
   let(:item3) { Item.new(code: :"003", name: "Kids T-shirt", price: 19.95) }
   let(:promo1) { double(id: :"promo1", type: :"multiple_buy", params: { code: :"001", quantity: 2, promo_price: 8.50 }) }
   let(:promo2) { double(id: :"promo2", type: :"vol_discount", params: { min_purchase: 60, discount: 0.1 }) }
-  let(:promo3) { double(id: :"promo1", type: :"multiple_buy", params: { code: :"002", quantity: 2, promo_price: 40 }) }
+  let(:promo3) { double(id: :"promo3", type: :"multiple_buy", params: { code: :"002", quantity: 2, promo_price: 40 }) }
   let(:basket) { Basket.new }
   let(:empty) { Basket.new }
 

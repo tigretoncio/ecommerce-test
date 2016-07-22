@@ -10,12 +10,16 @@ class Checkout
   end
 
   def total
-    c = Calculations.new(basket,promo_rules)
-    c.total
+    calc = Calculations.new(basket,promo_rules)
+    format_price(calc.total)
   end
 
   private
 
   attr_reader :basket, :promo_rules
+
+  def format_price(price)
+    "£#{format('%.2f', price)}"
+  end
 
 end
