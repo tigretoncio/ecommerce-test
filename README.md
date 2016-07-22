@@ -8,7 +8,7 @@ Author: Sergio Enrech Trillo
 
 Items are defined, instantiating new objects from the Item class, providing the product `code`, `name` and `price` of product.  Define as many items as you wish.
 
-Then define promotions, instantiating new Promotion object, with promo `id`, `type`, (at the moment they are 2 main type provided, either discount over total bill, named "volume discount", or discounted promo price when buy multiple items of an item, named `"multiple_buy"), the minimum buy quantity for the promotion to apply (`quantity`), and the `promo_price`
+Then define promotions, instantiating new Promotion object, with promo `id`, `type`, (at the moment they are 2 main type provided, either discount over total bill, named "volume discount", or discounted promo price when buy multiple items of an item, named `"multiple_buy"`), the minimum buy quantity for the promotion to apply (`quantity`), and the `promo_price`
 
 After that, just instantiate a `PromotionRules` object which is the collection of the promotional rules added.
 
@@ -18,7 +18,39 @@ At that point the checkout object can scan items, and calculate a total, providi
 
 An IRB example:
 
-<script src="https://gist.github.com/tigretoncio/695310fc4af62637192eb20390cd9f62.js"></script>
+```
+sergio@linux ~/Ronin/Tech-tests/babylon (wip *)
+$ irb
+2.3.1 :001 > item1 = Item.new(code: :"001", name: "Lavender heart", price: 9.25)
+ => #<Item:0x00000001c81468 @code=:"001", @name="Lavender heart", @price=9.25> 
+2.3.1 :002 > item2 = Item.new(code: :"002", name: "Personalised cufflinks", price: 45)
+ => #<Item:0x00000001c64548 @code=:"002", @name="Personalised cufflinks", @price=45> 
+2.3.1 :003 > item3 = Item.new(code: :"003", name: "Kids T-shirt", price: 19.95)
+ => #<Item:0x00000001c16ed8 @code=:"003", @name="Kids T-shirt", @price=19.95> 
+2.3.1 :004 > promo1 = Promotion.new(id: :promo1, type: :"multiple_buy", params: { code: :"001", quantity: 2, promo_price: 8.50 })
+ => #<Promotion:0x00000001a802e0 @id=:promo1, @type=:multiple_buy, @params={:code=>:"001", :quantity=>2, :promo_price=>8.5}> 
+2.3.1 :005 > promo2 = Promotion.new(id: :promo2, type: :"vol_discount", params: { min_purchase: 60, discount: 0.1 }) 
+ => #<Promotion:0x00000001a6f328 @id=:promo2, @type=:vol_discount, @params={:min_purchase=>60, :discount=>0.1}> 
+2.3.1 :006 > promo3 = Promotion.new(id: :promo3, type: :"multiple_buy", params: { code: :"002", quantity: 2, promo_price: 40 })
+ => #<Promotion:0x00000001df5178 @id=:promo3, @type=:multiple_buy, @params={:code=>:"002", :quantity=>2, :promo_price=>40}> 
+2.3.1 :007 > 
+2.3.1 :008 >   rules = PromotionRules.new(promo1,promo2,promo3)
+ => #<PromotionRules:0x00000001dcfcc0 @all=[#<Promotion:0x00000001a802e0 @id=:promo1, @type=:multiple_buy, @params={:code=>:"001", :quantity=>2, :promo_price=>8.5}>, #<Promotion:0x00000001a6f328 @id=:promo2, @type=:vol_discount, @params={:min_purchase=>60, :discount=>0.1}>, #<Promotion:0x00000001df5178 @id=:promo3, @type=:multiple_buy, @params={:code=>:"002", :quantity=>2, :promo_price=>40}>]> 
+2.3.1 :009 > 
+2.3.1 :010 >   co = Checkout.new(basket: Basket.new, promo_rules: rules)
+ => #<Checkout:0x00000001db4150 @basket=#<Basket:0x00000001db41c8 @basket=[]>, @promo_rules=#<PromotionRules:0x00000001dcfcc0 @all=[#<Promotion:0x00000001a802e0 @id=:promo1, @type=:multiple_buy, @params={:code=>:"001", :quantity=>2, :promo_price=>8.5}>, #<Promotion:0x00000001a6f328 @id=:promo2, @type=:vol_discount, @params={:min_purchase=>60, :discount=>0.1}>, #<Promotion:0x00000001df5178 @id=:promo3, @type=:multiple_buy, @params={:code=>:"002", :quantity=>2, :promo_price=>40}>]>> 
+2.3.1 :011 > 
+2.3.1 :012 >   
+2.3.1 :013 >   co.scan(item1)
+ => [#<Item:0x00000001c81468 @code=:"001", @name="Lavender heart", @price=9.25>] 
+2.3.1 :014 > co.scan(item2)
+ => [#<Item:0x00000001c81468 @code=:"001", @name="Lavender heart", @price=9.25>, #<Item:0x00000001c64548 @code=:"002", @name="Personalised cufflinks", @price=45>] 
+2.3.1 :015 > co.scan(item3)
+ => [#<Item:0x00000001c81468 @code=:"001", @name="Lavender heart", @price=9.25>, #<Item:0x00000001c64548 @code=:"002", @name="Personalised cufflinks", @price=45>, #<Item:0x00000001c16ed8 @code=:"003", @name="Kids T-shirt", @price=19.95>] 
+2.3.1 :016 > co.total
+ => "£66.78" 
+2.3.1 :017 > 
+```
 
 
 ## Comment
