@@ -1,5 +1,4 @@
 class Calculations
-  attr_reader :basket, :promo_rules
 
   def initialize(basket, promo_rules)
     @basket = basket
@@ -18,7 +17,7 @@ class Calculations
 
   private
 
-  attr_reader :discount, :min_buy
+  attr_reader :discount, :min_buy, :basket, :promo_rules
 
   def process_discount_rule
     discount_rule = promo_rules.select { |rule| rule.type == :vol_discount }
@@ -43,8 +42,6 @@ class Calculations
     end
   end
 
-  # def price_format(number)
-  #   "£#{format('%.2f', number)}"
-  # end
+
 
 end

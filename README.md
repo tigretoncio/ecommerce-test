@@ -6,7 +6,25 @@ Author: Sergio Enrech Trillo
 
 ## Usage
 
-Take a look to the feature testing
+Items are defined, instantiating new objects from the Item class, providing the product `code`, `name` and `price` of product.  Define as many items as you wish.
+
+Then define promotions, instantiating new Promotion object, with promo `id`, `type`, (at the moment they are 2 main type provided, either discount over total bill, named "volume discount", or discounted promo price when buy multiple items of an item, named `"multiple_buy"), the minimum buy quantity for the promotion to apply (`quantity`), and the `promo_price`
+
+After that, just instantiate a `PromotionRules` object which is the collection of the promotional rules added.
+
+Finally, define a `Checkout` object, passing as parameters a new basket and the promo_rules object created before.
+
+At that point the checkout object can scan items, and calculate a total, providing the value in a formatted string with the pound symbol at the beginning.
+
+An IRB example:
+
+<script src="https://gist.github.com/tigretoncio/695310fc4af62637192eb20390cd9f62.js"></script>
+
+
+## Comment
+
+This is a flexible approach, as multiple PromotionalRule objects can be coexisting, and therefore different items can have different promotional rules depending on location on any other variables.  Also, it allows to define many products to apply the "multiple discount" promotion, not just a single one.  The "volume discount" has been defined unique, but separated in methods and defined in the calculations class, so it can be easily amended to include other type of volume discount by ranges, (for e.g. price<60 no discount, 60<basket<100 10%, 100<basket<500 12% etc.)
+
 
 
 
