@@ -16,10 +16,10 @@ Our client is an online marketplace, here is a sample of some of the products av
 
 
 | Product  code | Name                   | Price  |
-­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­­|­-------------- |------------------------|--------|
+|---------------|------------------------|--------|
 | 001           | Lavenderheart          | £9.25  |
 | 002           | Personalised cuff links| £45.00 |
-| 003           | KidsT­shirt             | £19.95 |
+| 003           | KidsT­shirt            | £19.95 |
 
 
 Our marketing team want to offer promotions as an incentive for our customers to purchase these items.
@@ -41,7 +41,7 @@ looking for candidates to demonstrate their knowledge of TDD.
 
 ##Testdata
 
-­­­­­­­­­```
+```
 Basket:001,002,003
 Totalpriceexpected:£66.78
 ```
